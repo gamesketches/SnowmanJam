@@ -36,6 +36,11 @@ public class SnowballObject : MonoBehaviour
         {
             connected = true;
         }
+        else if(collision.gameObject.tag == "accessory")
+        {
+            collision.gameObject.transform.parent = transform;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

@@ -6,6 +6,21 @@ public class SnowballObject : MonoBehaviour
 {
     Rigidbody2D rb;
     public List<GameObject> snowHitAlready = new List<GameObject>();
+    public bool connected;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        gameObject.tag = "snowball";
+        connected = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     private void OnParticleCollision(GameObject other)
     {
@@ -15,16 +30,19 @@ public class SnowballObject : MonoBehaviour
         rb.AddForce(force * magnitude);
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        if(collision.gameObject.tag == "snowball")
+        {
+            connected = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.tag == "snowball")
+        {
+            connected = false;
+        }
     }
 }

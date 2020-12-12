@@ -7,6 +7,8 @@ public class GameManagerScript : MonoBehaviour
     public GameObject[] objectsToPlace;
     Queue<GameObject> objectQueue;
     public GameObject SnowCloud;
+    bool objectsPlaced = false;
+    SnowballObject[] snowballs;
 
     // Start is called before the first frame update
     void Start()
@@ -34,11 +36,35 @@ public class GameManagerScript : MonoBehaviour
                 StartCloud();
             }
         }
+
+        if(objectsPlaced) {
+            if (CheckWinState())
+            {
+                Debug.Log("Game won!");
+            }
+        }
     }
 
     void StartCloud()
     {
-        Debug.Log("Clouds a movin!");
         SnowCloud.SetActive(true);
+        objectsPlaced = true;
+        GameObject[] snowballObjs = GameObject.FindGameObjectsWithTag("snowball");
+        snowballs = new SnowballObject[snowballObjs.Length];
+        for(int i = 0; i < snowballObjs.Length; i++) {
+            snowballs[i] = snowballObjs[i].GetComponent<SnowballObject>();
+        }
+    }
+
+    bool CheckWinState()
+    {
+        foreach(SnowballObject snowball in snowballs)
+        {
+            if(!snowball.connected)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

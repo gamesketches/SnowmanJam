@@ -9,16 +9,26 @@ public class GameManagerScript : MonoBehaviour
     public GameObject SnowCloud;
     bool objectsPlaced = false;
     SnowballObject[] snowballs;
+    List<GameObject> visualQueue;
 
     // Start is called before the first frame update
     void Start()
     {
-        objectQueue = new Queue<GameObject>();
-        foreach(GameObject obj in objectsToPlace)
-        {
-            objectQueue.Enqueue(obj);
+        if(objectsToPlace.Length == 0) { Debug.LogError("No objects set for placement, attach some to the GM object!!!!!!"); }   
+        else {
+            objectQueue = new Queue<GameObject>();
+            visualQueue = new List<GameObject>();
+            GameObject itemSprite = Resources.Load<GameObject>("ItemSprite");
+            foreach(GameObject obj in objectsToPlace)
+            {
+                objectQueue.Enqueue(obj);
+                GameObject image = Instantiate<GameObject>(itemSprite);
+                image.GetComponent<SpriteRenderer>().sprite = obj.GetComponent<SpriteRenderer>().sprite;
+                visualQueue.Add(image);
+            }
+            UpdateVisualQueue();
+            SnowCloud.SetActive(false);
         }
-        SnowCloud.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +41,10 @@ public class GameManagerScript : MonoBehaviour
             placedPosition.z = 0;
             nextObject.transform.position = placedPosition;
             nextObject.transform.rotation = Quaternion.identity;
+            nextObject = visualQueue[0];
+            visualQueue.RemoveAt(0);
+            Destroy(nextObject);
+            UpdateVisualQueue();
             if(objectQueue.Count <= 0)
             {
                 StartCloud();
@@ -66,5 +80,16 @@ public class GameManagerScript : MonoBehaviour
             }
         }
         return true;
+    }
+
+    void UpdateVisualQueue()
+    {
+        float xOffset = 30;
+        for(int i = 0; i < visualQueue.Count; i++) {
+            Vector3 screenPos = Camera.main.ScreenToWorldPoint(new Vector3(30 + (xOffset * i), Screen.height - 30, 0));
+            screenPos.z = 0;
+            visualQueue[i].transform.position = screenPos;
+        }
+
     }
 }

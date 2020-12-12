@@ -10,6 +10,7 @@ public class GameManagerScript : MonoBehaviour
     bool objectsPlaced = false;
     SnowballObject[] snowballs;
     List<GameObject> visualQueue;
+    bool checkingWin = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +55,9 @@ public class GameManagerScript : MonoBehaviour
         if(objectsPlaced) {
             if (CheckWinState())
             {
-                Debug.Log("Game won!");
+                StartCoroutine(WinLevel());
+            } else {
+                Debug.Log("Somethings' not connected");
             }
         }
     }
@@ -72,6 +75,7 @@ public class GameManagerScript : MonoBehaviour
 
     bool CheckWinState()
     {
+        if (checkingWin) return false;
         foreach(SnowballObject snowball in snowballs)
         {
             if(!snowball.connected)
@@ -91,5 +95,27 @@ public class GameManagerScript : MonoBehaviour
             visualQueue[i].transform.position = screenPos;
         }
 
+    }
+
+    IEnumerator WinLevel()
+    {
+        Debug.Log("won the level!");
+        yield return new WaitForSeconds(0.5f);
+        checkingWin = false;
+        if(CheckWinState()) {
+            checkingWin = true;
+            float zoomTime = 0.4f;
+            float startingZoom = Camera.main.orthographicSize;
+            float targetZoom = 4.5f;
+            Vector3 cameraStartPos = Camera.main.transform.position;
+            Vector3 targetPos = GameObject.FindGameObjectsWithTag("snowball")[0].transform.position;
+            targetPos.z = cameraStartPos.z;
+            for (float t = 0; t < zoomTime; t += Time.deltaTime)
+            {
+                Camera.main.transform.position = Vector3.Lerp(cameraStartPos, targetPos, t / zoomTime);
+                Camera.main.orthographicSize = Mathf.Lerp(startingZoom, targetZoom, t / zoomTime);
+                yield return null;
+            }
+        }
     }
 }

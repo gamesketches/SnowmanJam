@@ -35,6 +35,8 @@ public class SnowballObject : MonoBehaviour
         if(collision.gameObject.tag == "snowball")
         {
             connected = true;
+            collision.gameObject.GetComponent<SnowballObject>().connected = true;
+            Debug.Log("Connected");
         }
         else if(collision.gameObject.tag == "accessory")
         {
@@ -48,6 +50,7 @@ public class SnowballObject : MonoBehaviour
         if(collision.gameObject.tag == "snowball")
         {
             connected = false;
+            Debug.Log("Disconnected");
         }
     }
 }

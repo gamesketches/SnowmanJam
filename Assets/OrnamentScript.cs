@@ -10,22 +10,18 @@ public class OrnamentScript : MonoBehaviour
     bool bombStart;
     bool hasExploded;
 
-    Vector2 originOfExplode;
-    float radius;
-    float forceMultiplier; // force of the explosion
+    Vector3 originOfExplode;
+    float radius = 5;
+    float forceMultiplier = 400; 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-
         if (collision.gameObject.layer == 8)
         {
             sr.color = Color.red;
             bombStart = true;
         }
-
     }
-
 
     void Start()
     {
@@ -33,8 +29,6 @@ public class OrnamentScript : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (bombStart)
@@ -46,19 +40,17 @@ public class OrnamentScript : MonoBehaviour
         {
             Explosion();
             hasExploded = true;
+            Destroy(gameObject);
         }
     }
 
     public void Explosion()
     {
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(originOfExplode, radius);
-
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, radius);
         foreach (Collider2D col in colliders)
         {
-            // the force will be a vector with a direction from origin to collider's position and with a length of 'forceMultiplier'
-            Vector2 force = (col.transform.position - originOfExplode) * forceMultiplier;
-            Rigidbody rb = col.transform.GetComponent<Rigidbody>();
+            Vector2 force = (col.transform.position - gameObject.transform.position) * forceMultiplier;
+            Rigidbody2D rb = col.transform.GetComponent<Rigidbody2D>();
             rb.AddForce(force);
         }
     }

@@ -44,11 +44,11 @@ TagManager:
   - name: BKG
     uniqueID: 1016390089
     locked: 0
-  - name: Platforms
-    uniqueID: 1122366861
-    locked: 0
   - name: Objects
     uniqueID: 812031147
+    locked: 0
+  - name: Platforms
+    uniqueID: 1122366861
     locked: 0
   - name: FG
     uniqueID: 116167139

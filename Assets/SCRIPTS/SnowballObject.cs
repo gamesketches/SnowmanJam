@@ -9,11 +9,10 @@ public class SnowballObject : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-            var magnitude = 400;
-            var force = transform.position - other.transform.position;
-            force.Normalize();
-            rb.AddForce(force * magnitude);
-      
+        var magnitude = 600;
+        var force = transform.position - other.transform.position;
+        force.Normalize();
+        rb.AddForce(force * magnitude);
     }
 
 

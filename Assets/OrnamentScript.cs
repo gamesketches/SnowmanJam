@@ -12,7 +12,7 @@ public class OrnamentScript : MonoBehaviour
 
     Vector3 originOfExplode;
     float radius = 5;
-    float forceMultiplier = 400; 
+    float forceMultiplier = 2500; 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -25,7 +25,7 @@ public class OrnamentScript : MonoBehaviour
 
     void Start()
     {
-        sr = gameObject.GetComponent<SpriteRenderer>();
+        sr = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 

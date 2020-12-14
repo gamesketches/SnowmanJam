@@ -24,7 +24,7 @@ public class GameManagerScript : MonoBehaviour
             {
                 objectQueue.Enqueue(obj);
                 GameObject image = Instantiate<GameObject>(itemSprite);
-                image.GetComponent<SpriteRenderer>().sprite = obj.GetComponent<SpriteRenderer>().sprite;
+                image.GetComponent<SpriteRenderer>().sprite = obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
                 visualQueue.Add(image);
             }
             UpdateVisualQueue();

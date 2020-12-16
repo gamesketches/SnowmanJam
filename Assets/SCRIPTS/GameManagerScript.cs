@@ -43,7 +43,7 @@ public class GameManagerScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             GameObject nextObject = Instantiate<GameObject>(objectQueue.Dequeue());
             Vector3 placedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

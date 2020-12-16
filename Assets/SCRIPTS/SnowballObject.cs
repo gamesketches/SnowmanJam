@@ -30,6 +30,15 @@ public class SnowballObject : MonoBehaviour
         rb.AddForce(force * magnitude);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "accessory")
+        {
+            collision.gameObject.transform.parent = transform;
+            collision.gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "snowball")
@@ -53,11 +62,7 @@ public class SnowballObject : MonoBehaviour
             //DistanceJoint2D myJoint = (DistanceJoint2D)gameObject.AddComponent<DistanceJoint2D>();
             //myJoint.connectedBody = collision.rigidbody;
         }
-        else if(collision.gameObject.tag == "accessory")
-        {
-            collision.gameObject.transform.parent = transform;
-            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        }
+       
     }
 
     ///Removed this as we dont have a use or mechanic for breaking a connection once they are connected at this point and seemed to cause issues in win state with joints?

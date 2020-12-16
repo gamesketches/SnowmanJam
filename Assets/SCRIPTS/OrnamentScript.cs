@@ -11,8 +11,8 @@ public class OrnamentScript : MonoBehaviour
     bool hasExploded;
 
     Vector3 originOfExplode;
-    float radius = 5;
-    float forceMultiplier = 2500; 
+    float radius = 3.5f;
+    float forceMultiplier = 30; 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,9 +49,13 @@ public class OrnamentScript : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, radius);
         foreach (Collider2D col in colliders)
         {
-            Vector2 force = (col.transform.position - gameObject.transform.position) * forceMultiplier;
-            Rigidbody2D rb = col.transform.GetComponent<Rigidbody2D>();
-            rb.AddForce(force);
+            if (col.gameObject != gameObject)
+            {
+                print(col.gameObject.name);
+                Vector2 force = (col.transform.position - gameObject.transform.position) * (forceMultiplier / Vector2.Distance(col.transform.position, gameObject.transform.position));
+                Rigidbody2D rb = col.transform.GetComponent<Rigidbody2D>();
+                rb.AddForce(force, ForceMode2D.Impulse);
+            }
         }
     }
 }

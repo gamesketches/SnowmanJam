@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class SnowcloudObject : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    Rigidbody2D rb;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "check4win")
+        {
+            print("Cloud has finished its course!");
+            GameManagerScript.objectsPlaced = true;
+        }
+    }
+    
     void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        gameObject.transform.Translate(Vector2.right * Time.deltaTime * 1f);
+        rb.MovePosition(transform.position + transform.right * Time.fixedDeltaTime);
     }
 }

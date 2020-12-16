@@ -9,11 +9,16 @@ public class OrnamentScript : MonoBehaviour
     public float bombTimer = 3;
     bool bombStart;
     bool hasExploded;
-
+    public GameObject explosionSprite;
     Vector3 originOfExplode;
     float radius = 3.5f;
-    float forceMultiplier = 30; 
+    float forceMultiplier = 30;
 
+    private void OnParticleCollision(GameObject other)
+    {
+        sr.color = Color.red;
+        bombStart = true;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 8)
@@ -40,6 +45,7 @@ public class OrnamentScript : MonoBehaviour
         {
             Explosion();
             hasExploded = true;
+            Instantiate(explosionSprite, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -55,6 +61,7 @@ public class OrnamentScript : MonoBehaviour
                 Vector2 force = (col.transform.position - gameObject.transform.position) * (forceMultiplier / Vector2.Distance(col.transform.position, gameObject.transform.position));
                 Rigidbody2D rb = col.transform.GetComponent<Rigidbody2D>();
                 rb.AddForce(force, ForceMode2D.Impulse);
+                rb.AddTorque(200);
             }
         }
     }

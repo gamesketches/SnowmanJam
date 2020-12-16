@@ -7,14 +7,15 @@ public class GameManagerScript : MonoBehaviour
     public GameObject[] objectsToPlace;
     Queue<GameObject> objectQueue;
     public GameObject SnowCloud;
-    bool objectsPlaced = false;
+    public static bool objectsPlaced = false;
     SnowballObject[] snowballs;
     List<GameObject> visualQueue;
     bool checkingWin = false;
-
+    public static int snowballsConnected;
     // Start is called before the first frame update
     void Start()
     {
+        snowballsConnected = 0;
         if(objectsToPlace.Length == 0) { Debug.LogError("No objects set for placement, attach some to the GM object!!!!!!"); }   
         else {
             objectQueue = new Queue<GameObject>();
@@ -35,11 +36,15 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(snowballsConnected);
         if(Input.GetMouseButtonDown(0))
         {
             GameObject nextObject = Instantiate<GameObject>(objectQueue.Dequeue());
             Vector3 placedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             placedPosition.z = 0;
+            if (placedPosition.y < 7) {
+                placedPosition.y = 7;
+            }
             nextObject.transform.position = placedPosition;
             nextObject.transform.rotation = Quaternion.identity;
             nextObject = visualQueue[0];
@@ -53,6 +58,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         if(objectsPlaced) {
+
             if (CheckWinState())
             {
                 StartCoroutine(WinLevel());
@@ -65,7 +71,7 @@ public class GameManagerScript : MonoBehaviour
     void StartCloud()
     {
         SnowCloud.SetActive(true);
-        objectsPlaced = true;
+       // objectsPlaced = true;
         GameObject[] snowballObjs = GameObject.FindGameObjectsWithTag("snowball");
         snowballs = new SnowballObject[snowballObjs.Length];
         for(int i = 0; i < snowballObjs.Length; i++) {

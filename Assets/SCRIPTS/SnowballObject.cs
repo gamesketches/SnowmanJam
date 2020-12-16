@@ -34,7 +34,13 @@ public class SnowballObject : MonoBehaviour
     {
         if(collision.gameObject.tag == "snowball")
         {
-            connected = true;
+            if (!connected)
+            {
+                connected = true;
+                GameManagerScript.snowballsConnected += 1;
+            }
+           
+           
             collision.gameObject.GetComponent<SnowballObject>().connected = true;
             Debug.Log("Connected");
 
@@ -54,12 +60,14 @@ public class SnowballObject : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "snowball")
-        {
-            connected = false;
-            Debug.Log("Disconnected");
-        }
-    }
+    ///Removed this as we dont have a use or mechanic for breaking a connection once they are connected at this point and seemed to cause issues in win state with joints?
+    ///
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.tag == "snowball")
+    //    {
+    //        connected = false;
+    //        Debug.Log("Disconnected");
+    //    }
+    //}
 }

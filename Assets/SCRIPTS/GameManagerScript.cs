@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -36,7 +37,11 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(snowballsConnected);
+        //Quick Reset Scene
+        if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         if(Input.GetMouseButtonDown(0))
         {
             GameObject nextObject = Instantiate<GameObject>(objectQueue.Dequeue());

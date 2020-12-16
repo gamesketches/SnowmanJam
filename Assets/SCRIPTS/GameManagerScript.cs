@@ -27,6 +27,7 @@ public class GameManagerScript : MonoBehaviour
                 objectQueue.Enqueue(obj);
                 GameObject image = Instantiate<GameObject>(itemSprite);
                 image.GetComponent<SpriteRenderer>().sprite = obj.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
+                image.transform.localScale = new Vector3(.4f, .4f, .4f);
                 visualQueue.Add(image);
             }
             UpdateVisualQueue();
@@ -101,7 +102,7 @@ public class GameManagerScript : MonoBehaviour
     {
         float xOffset = 30;
         for(int i = 0; i < visualQueue.Count; i++) {
-            Vector3 screenPos = Camera.main.ScreenToWorldPoint(new Vector3(30 + (xOffset * i), Screen.height - 30, 0));
+            Vector3 screenPos = Camera.main.ScreenToWorldPoint(new Vector3(20 + (xOffset * i), Screen.height - 30, 0));
             screenPos.z = 0;
             visualQueue[i].transform.position = screenPos;
         }

@@ -6529,8 +6529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToPlace:
   - {fileID: 4643643994796935734, guid: af164406a3d8d46f6bb33b879b928ea5, type: 3}
+  - {fileID: 5227635686258025270, guid: f99ff9acc9af843d8be9c0bff2d0f2b8, type: 3}
   - {fileID: 4568486218303155261, guid: c2ce76584d3144db5bdfaad70366ab83, type: 3}
-  - {fileID: 890772050984505671, guid: 531db69bebc3d4b90bbcc604d3db03a5, type: 3}
   SnowCloud: {fileID: 1862229565}
 --- !u!4 &1628635774
 Transform:

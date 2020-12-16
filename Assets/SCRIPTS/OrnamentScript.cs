@@ -51,7 +51,7 @@ public class OrnamentScript : MonoBehaviour
         {
             if (col.gameObject != gameObject)
             {
-                print(col.gameObject.name);
+                //print(col.gameObject.name);
                 Vector2 force = (col.transform.position - gameObject.transform.position) * (forceMultiplier / Vector2.Distance(col.transform.position, gameObject.transform.position));
                 Rigidbody2D rb = col.transform.GetComponent<Rigidbody2D>();
                 rb.AddForce(force, ForceMode2D.Impulse);

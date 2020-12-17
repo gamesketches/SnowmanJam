@@ -24,7 +24,7 @@ public class SnowballObject : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        var magnitude = 600;
+        var magnitude = 100;
         var force = transform.position - other.transform.position;
         force.Normalize();
         rb.AddForce(force * magnitude);

@@ -1,7 +1,136 @@
 fileFormatVersion: 2
 guid: 178efc728fd844047b3deae3ad02acb8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2532766429855629420
+    second: Accessories_0
+  - first:
+      213: 6978715442030580158
+    second: Accessories_1
+  - first:
+      213: -4653427000475450172
+    second: Accessories_2
+  - first:
+      213: -4607735624590280163
+    second: Accessories_3
+  - first:
+      213: 3045504458676584688
+    second: Accessories_4
+  - first:
+      213: -6861499703678727270
+    second: Accessories_5
+  - first:
+      213: 8822150099388408850
+    second: Accessories_6
+  - first:
+      213: 4320795325994557044
+    second: Accessories_7
+  - first:
+      213: 236091350785259282
+    second: Accessories_8
+  - first:
+      213: 4982477295513030146
+    second: Accessories_9
+  - first:
+      213: -2429690337614015138
+    second: Accessories_10
+  - first:
+      213: -2284106933097416695
+    second: Accessories_11
+  - first:
+      213: -5778855750390242141
+    second: Accessories_12
+  - first:
+      213: 5192779199847288922
+    second: Accessories_13
+  - first:
+      213: -6200710099883789027
+    second: Accessories_14
+  - first:
+      213: 675008616562983815
+    second: Accessories_15
+  - first:
+      213: 5031077857126021363
+    second: Accessories_16
+  - first:
+      213: 3370767538407942457
+    second: Accessories_17
+  - first:
+      213: 1907709521812302408
+    second: Accessories_18
+  - first:
+      213: 27648979683382046
+    second: Accessories_19
+  - first:
+      213: 2557938953641578985
+    second: Accessories_20
+  - first:
+      213: 7656108278401903771
+    second: Accessories_21
+  - first:
+      213: -5500111538981811057
+    second: Accessories_22
+  - first:
+      213: -2567500641758007225
+    second: Accessories_23
+  - first:
+      213: 6959792111204116569
+    second: Accessories_24
+  - first:
+      213: 7615448661419015586
+    second: Accessories_25
+  - first:
+      213: 4599584156709906836
+    second: Accessories_26
+  - first:
+      213: 8507346455543427416
+    second: Accessories_27
+  - first:
+      213: 8826114936478777947
+    second: Accessories_28
+  - first:
+      213: -3464432707211387870
+    second: Accessories_0
+  - first:
+      213: 6841071949036682418
+    second: Accessories_1
+  - first:
+      213: 3504920030640117334
+    second: Accessories_2
+  - first:
+      213: 6440923679056192278
+    second: Accessories_3
+  - first:
+      213: 8199521864692550439
+    second: Accessories_4
+  - first:
+      213: -7032450770396829170
+    second: Accessories_5
+  - first:
+      213: -4069619353528599406
+    second: Accessories_6
+  - first:
+      213: -2166713966423088242
+    second: Accessories_7
+  - first:
+      213: -2486915777989909739
+    second: Accessories_8
+  - first:
+      213: 151695453400025873
+    second: Accessories_9
+  - first:
+      213: -2683569469381878348
+    second: Accessories_10
+  - first:
+      213: -7160566806410525491
+    second: Accessories_11
+  - first:
+      213: -7565692898289558158
+    second: Accessories_12
+  - first:
+      213: 3813320348541407347
+    second: Accessories_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +169,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +200,339 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Accessories_0
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1266
+        width: 294
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c9b62eeccdbefc0800000000000000
+      internalID: -3464432707211387870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_1
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 1342
+        width: 227
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc783d21be50fe50800000000000000
+      internalID: 6841071949036682418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_2
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1382
+        width: 133
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6569470b23af3a030800000000000000
+      internalID: 3504920030640117334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_3
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 1339
+        width: 194
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613eb8be5f1c26950800000000000000
+      internalID: 6440923679056192278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_4
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 1074
+        width: 429
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b4c0961bd8ac170800000000000000
+      internalID: 8199521864692550439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_5
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 745
+        width: 70
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a231aa847b76e90800000000000000
+      internalID: -7032450770396829170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_6
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 662
+        width: 190
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29c7fdd72cec587c0800000000000000
+      internalID: -4069619353528599406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_7
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 897
+        width: 121
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83697590294ee1e0800000000000000
+      internalID: -2166713966423088242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_8
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 1129
+        width: 218
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513e892b643bc7dd0800000000000000
+      internalID: -2486915777989909739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_9
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 730
+        width: 407
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b43fd063eea1200800000000000000
+      internalID: 151695453400025873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_10
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 168
+        width: 651
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bdd86729cb02cad0800000000000000
+      internalID: -2683569469381878348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_11
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 410
+        width: 569
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc482798d6e80ac90800000000000000
+      internalID: -7160566806410525491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 53
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d51cdc462410790800000000000000
+      internalID: -7565692898289558158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Accessories_13
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 48
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370549537a2abe430800000000000000
+      internalID: 3813320348541407347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

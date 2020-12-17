@@ -168,3 +168,6 @@ MonoBehaviour:
   bombTimer: 2
   explosionSprite: {fileID: 4706146432965707903, guid: 640a52d569a454bd38148d1e5cb8e62f,
     type: 3}
+  objLayer:
+    serializedVersion: 2
+    m_Bits: 256

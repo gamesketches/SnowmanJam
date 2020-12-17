@@ -12,8 +12,8 @@ public class OrnamentScript : MonoBehaviour
     public GameObject explosionSprite;
     Vector3 originOfExplode;
     float radius = 3.5f;
-    float forceMultiplier = 30;
-
+    float forceMultiplier = 40;
+    public LayerMask objLayer;
     private void OnParticleCollision(GameObject other)
     {
         sr.color = Color.red;
@@ -26,6 +26,9 @@ public class OrnamentScript : MonoBehaviour
             sr.color = Color.red;
             bombStart = true;
         }
+
+        sr.color = Color.red;
+        bombStart = true;
     }
 
     void Start()
@@ -52,13 +55,24 @@ public class OrnamentScript : MonoBehaviour
 
     public void Explosion()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, radius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(gameObject.transform.position, radius, objLayer);
         foreach (Collider2D col in colliders)
         {
             if (col.gameObject != gameObject)
             {
                 //print(col.gameObject.name);
-                Vector2 force = (col.transform.position - gameObject.transform.position) * (forceMultiplier / Vector2.Distance(col.transform.position, gameObject.transform.position));
+                //float distance;
+                //distance = Vector2.Distance(col.transform.position, gameObject.transform.position);
+                //if (distance > 1)
+                //{
+                //    Vector2 force = (col.transform.position - gameObject.transform.position) * (forceMultiplier / distance);
+                //}
+                //else {
+                    
+
+                //}
+                Vector2 force = (col.transform.position - gameObject.transform.position) * forceMultiplier;
+               
                 Rigidbody2D rb = col.transform.GetComponent<Rigidbody2D>();
                 rb.AddForce(force, ForceMode2D.Impulse);
                 rb.AddTorque(200);

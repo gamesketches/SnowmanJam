@@ -98,7 +98,7 @@ public class GameManagerScript : MonoBehaviour
     }
 
     void SpawnGhostObj() {
-        ghostObj = Instantiate<GameObject>(objectsToPlace[0]);
+        ghostObj = Instantiate<GameObject>(objectsToPlace[obj2Spawn]);
         ghostObj.transform.GetChild(0).GetComponent<ObjectScript>().ghostObj = true;
         ghostObj.transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale = 0;
         ghostObj.transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale = 0;

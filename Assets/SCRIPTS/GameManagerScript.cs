@@ -13,6 +13,8 @@ public class GameManagerScript : MonoBehaviour
     List<GameObject> visualQueue;
     bool checkingWin = false;
     public static int snowballsConnected;
+    GameObject ghostObj;
+    int obj2Spawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,9 @@ public class GameManagerScript : MonoBehaviour
             UpdateVisualQueue();
             SnowCloud.SetActive(false);
         }
+
+        SpawnGhostObj();
+
     }
 
     // Update is called once per frame
@@ -43,21 +48,28 @@ public class GameManagerScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && ObjectScript.canBePlaced)
         {
             GameObject nextObject = Instantiate<GameObject>(objectQueue.Dequeue());
             Vector3 placedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             placedPosition.z = 0;
-            if (placedPosition.y < 7) {
-                placedPosition.y = 7;
-            }
+            //if (placedPosition.y < 7) {
+            //    placedPosition.y = 7;
+            //}
             nextObject.transform.position = placedPosition;
             nextObject.transform.rotation = Quaternion.identity;
             nextObject = visualQueue[0];
             visualQueue.RemoveAt(0);
             Destroy(nextObject);
             UpdateVisualQueue();
-            if(objectQueue.Count <= 0)
+
+            obj2Spawn += 1;
+            Destroy(ghostObj);
+            if (obj2Spawn < objectsToPlace.Length) {
+                SpawnGhostObj();
+            }
+
+            if (objectQueue.Count <= 0)
             {
                 StartCloud();
             }
@@ -73,6 +85,30 @@ public class GameManagerScript : MonoBehaviour
             }
         }
     }
+
+    private void LateUpdate()
+    {
+        if (obj2Spawn < objectsToPlace.Length)
+        {
+            Vector3 ghostPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            ghostPos.z = -1;
+            ghostObj.transform.position = ghostPos;
+        }
+       
+    }
+
+    void SpawnGhostObj() {
+        ghostObj = Instantiate<GameObject>(objectsToPlace[0]);
+        ghostObj.transform.GetChild(0).GetComponent<ObjectScript>().ghostObj = true;
+        ghostObj.transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale = 0;
+        ghostObj.transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale = 0;
+        ghostObj.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
+       // ghostObj.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.45f);
+        ghostObj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = "FG";
+        ghostObj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 9999;
+
+    }
+
 
     void StartCloud()
     {

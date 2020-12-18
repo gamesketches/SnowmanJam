@@ -55,12 +55,12 @@ public class SnowballObject : MonoBehaviour
 
 
             ///Snowballs will not roll with the hinge joint
-            //HingeJoint2D myJoint = (HingeJoint2D)gameObject.AddComponent<HingeJoint2D>();
-            //myJoint.connectedBody = collision.rigidbody;
+            HingeJoint2D myJoint = (HingeJoint2D)gameObject.AddComponent<HingeJoint2D>();
+            myJoint.connectedBody = collision.rigidbody;
 
             ///Snowballs will roll together with the distance joint
-            DistanceJoint2D myJoint = (DistanceJoint2D)gameObject.AddComponent<DistanceJoint2D>();
-            myJoint.connectedBody = collision.rigidbody;
+            //DistanceJoint2D myJoint = (DistanceJoint2D)gameObject.AddComponent<DistanceJoint2D>();
+            //myJoint.connectedBody = collision.rigidbody;
             
 
 

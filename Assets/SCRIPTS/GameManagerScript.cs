@@ -99,10 +99,11 @@ public class GameManagerScript : MonoBehaviour
 
     void SpawnGhostObj() {
         ghostObj = Instantiate<GameObject>(objectsToPlace[obj2Spawn]);
+        ghostObj.transform.GetChild(0).gameObject.layer = 2;
         ghostObj.transform.GetChild(0).GetComponent<ObjectScript>().ghostObj = true;
         ghostObj.transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale = 0;
         ghostObj.transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale = 0;
-        ghostObj.transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
+        ghostObj.transform.GetChild(0).GetComponent<PolygonCollider2D>().isTrigger = true;
        // ghostObj.transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.45f);
         ghostObj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingLayerName = "FG";
         ghostObj.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 9999;

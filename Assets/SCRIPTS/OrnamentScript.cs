@@ -12,7 +12,7 @@ public class OrnamentScript : MonoBehaviour
     public GameObject explosionSprite;
     Vector3 originOfExplode;
     float radius = 3.5f;
-    float forceMultiplier = 40;
+    float forceMultiplier = 30;
     public LayerMask objLayer;
     private void OnParticleCollision(GameObject other)
     {
@@ -33,7 +33,7 @@ public class OrnamentScript : MonoBehaviour
 
     void Start()
     {
-        sr = gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        sr = gameObject.transform.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
